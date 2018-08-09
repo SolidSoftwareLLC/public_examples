@@ -177,9 +177,6 @@ resource "aws_autoscaling_group" "ecs_cluster_ondemand" {
   max_size                  = "${local.max_ondemand_instances}"
   min_size                  = "${local.min_ondemand_instances}"
   launch_configuration      = "${aws_launch_configuration.ecs_config_launch_config_ondemand.name}"
-  timeouts {
-    delete = "15m"
-  }
   lifecycle {
     create_before_destroy = true
   }
@@ -192,9 +189,6 @@ resource "aws_autoscaling_group" "ecs_cluster_spot" {
   max_size                  = "${local.max_spot_instances}"
   min_size                  = "${local.min_spot_instances}"
   launch_configuration      = "${aws_launch_configuration.ecs_config_launch_config_spot.name}"
-  timeouts {
-    delete = "15m"
-  }
   lifecycle {
     create_before_destroy = true
   }
