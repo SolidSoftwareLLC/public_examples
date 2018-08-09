@@ -2,6 +2,16 @@ provider "aws" {
   region     = "us-west-2"
 }
 
+# Set the default vpc
+data "aws_vpc" "default" {
+  default = true
+}
+
+# Read all subnet ids for this vpc/region.
+data "aws_subnet_ids" "all_subnets" {
+  vpc_id = "${data.aws_vpc.default.id}"
+}
+
 # Define some variables we'll use later.
 locals {
   instance_type = "m4.large"
@@ -13,16 +23,6 @@ locals {
 
   max_ondemand_instances = 3
   min_ondemand_instances = 3
-}
-
-# Set the default vpc
-data "aws_vpc" "default" {
-  default = true
-}
-
-# Read all subnet ids for this vpc/region.
-data "aws_subnet_ids" "all_subnets" {
-  vpc_id = "${data.aws_vpc.default.id}"
 }
 
 # Lookup the current ECS AMI.
