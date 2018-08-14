@@ -1,13 +1,9 @@
 ## Steps
-1. Update the setup script with the bucket name for your redis backups and the maxmemory for the database
+1. Update the redis config with the appropriate maxmemory for the database
   ```bash
   ...
   ################################### CLIENTS ####################################
   maxmemory 4GB
-  ...
-  cat > /usr/local/bin/redis_backup << EOF
-  #!/usr/bin/env bash
-  bucket_name=FILL_ME_IN
   ...
   ```
 
