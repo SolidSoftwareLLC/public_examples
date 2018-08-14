@@ -8,4 +8,4 @@
 * Finally run `terraform apply`.
 * Once terraform returns you should see a new ECS cluster in your AWS console.
 
-For more information see blog post. 
+For more information, [see the blog post](https://solidsoftware.io/blog/hybrid-spot-ondemand-ecs-cluster-setup/).
